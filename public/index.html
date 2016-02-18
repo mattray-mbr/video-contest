@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css">
+	<link rel="stylesheet" href="/style.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.js"></script>
+	<script type="text/javascript" src="/ang.js"></script>
+</head>
+<body ng-controller="videoController">
+	<h1>Best Climbing Videos Contest</h1>
+	<h4>Featuring Cesar Valencia</h4>
+	<form ng-submit="addNewVideo()">
+		<label for="">Name</label>
+		<input type="text" placeholder="John Smith" ng-model="newVideo.name">
+		<label for="">Video URL(cesar videos only please)</label>
+		<input type="url" value="press" ng-model="newVideo.url">
+		<label for="">Video Title</label>
+		<input type="text" placeholder="super awesome video" ng-model="newVideo.title">
+		<label for="">Description</label>
+		<textarea placeholder="enter description here" ng-model="newVideo.desc"></textarea>
+		<input type="submit" value="press">
+	</form>
+	<h2>{{test}}</h2>
+	<div ng-repeat="video in collection">
+		<h4>{{video.name}}</h4>
+		<iframe width="300px" height="300px" src="{{$sce.trustAsResourceUrl(video.url)}}"></iframe>
+		<h6>{{video.title}}</h6>
+		<p>{{video.desc}}</p>
+		<button class="btn btn-info" ng-click="vote()">vote</button>
+
+	</div>
+</body>
+</html>
