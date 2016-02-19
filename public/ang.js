@@ -25,9 +25,10 @@ var app = angular.module('myApp', [])
 		
 	}
 
-	$scope.vote = function(){
-		$http.post('/')
-	}
-
+	// $scope.vote = function(){
+	// 	$http.put('/api/videos', $scope.collection.rating).then(function(dataFromServer){
+	// 		$scope.collection = dataFromServer.data
+	// 	})
+	// }
 
 }])
