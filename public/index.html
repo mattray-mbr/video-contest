@@ -9,28 +9,48 @@
 	<script type="text/javascript" src="/ang.js"></script>
 </head>
 <body ng-controller="videoController">
-	<h1>Best Climbing Videos Contest</h1>
-	<h4>Featuring Cesar Valencia</h4>
-	<form ng-submit="addNewVideo()">
-		<label for="">Name</label>
-		<input type="text" placeholder="John Smith" ng-model="newVideo.name">
-		<label for="">Video URL(cesar videos only please)</label>
-		<input type="url" value="press" ng-model="newVideo.url">
-		<label for="">Video Title</label>
-		<input type="text" placeholder="super awesome video" ng-model="newVideo.title">
-		<label for="">Description</label>
-		<textarea placeholder="enter description here" ng-model="newVideo.desc"></textarea>
-		<input type="submit" value="press">
-	</form>
-	<h2>{{test}}</h2>
-	<div ng-repeat="video in collection">
-		<h4>{{video.name}}</h4>
-		<iframe width="300px" height="300px" src="{{$sce.trustAsResourceUrl(video.url)}}"></iframe>
-		<h6>{{video.title}}</h6>
-		<p>{{video.desc}}</p>
-		<p>{{video.rating}}</p>
-		<button class="btn btn-info" ng-click="vote()">vote</button>
-
-	</div>
+	<div class="container">	
+		<h1>Super Cesar Climbing Video Contest</h1>
+		<h4>Featuring Cesar and Naomi</h4>
+		<div class="form-area">
+			<h3>Add a Cesar video below! <span class="specifications">(only videos from <a href="https://www.youtube.com/channel/UCMf078ynWJGrSf5Xo3FycpQ">youtube</a> are allowed)</span></h3>
+			<button ng-click="hideForm()">{{toggleForm}}</button>
+			<form class="add-video-form" ng-submit="addNewVideo()" ng-hide="displayForm">
+				<label for="">Name</label>
+				<input type="text" ng-model="newVideo.name">
+				<label for="">Video URL(use embed link without iframe)</label>
+				<input type="url" value="press" ng-model="newVideo.url">
+				<label for="">Video Title</label>
+				<input type="text" placeholder="super awesome video" ng-model="newVideo.title">
+				<label for="">Description</label>
+				<textarea placeholder="enter description here" ng-model="newVideo.desc"></textarea>
+				<input type="submit" value="Submit Video">
+			</form>
+		</div>
+	</div> <!-- container -->
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-6" ng-repeat="video in collection | limitTo:2:displayNumber">
+				<h4>{{video.name}}</h4>
+				<iframe width="300px" height="300px" src="{{$sce.trustAsResourceUrl(video.url)}}"></iframe>
+				<h6>{{video.title}}</h6>
+				<p>{{video.desc}}</p>
+				<button class="btn btn-info" ng-click="vote(video.name)">vote</button>
+				<p>votes: {{video.votes}}</p>
+			</div>
+		</div> <!-- row -->
+		<div class="row">
+			<div class="col-xs-12">
+				<button class="btn btn-success">Winner</button>
+			</div>
+		</div> <!-- row -->
+		<div class="row">
+			<div class="col-xs-12">
+				<button class="btn btn-warning" ng-click="prevSet()">prev</button>
+				<button class="btn btn-warning" ng-click="nextSet()">next</button>
+			</div>
+		</div> <!-- row -->
+	</div><!-- container -->
+	
 </body>
 </html>

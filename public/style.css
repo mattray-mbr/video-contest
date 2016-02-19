@@ -1,3 +1,9 @@
 h1 {
 	color: red;
 }
+.add-video-form {
+	border: 2px solid #391;
+}
+.add-video-form label {
+	display: block;
+}
