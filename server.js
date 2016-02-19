@@ -12,12 +12,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));
 
 var videos = [
-	// {
-	// 	name: 'first video',
-	// 	url: 'https://www.youtube.com/embed/1RQ7J3QRVmM',
-	// 	title: 'some title',
-	// 	desc: 'stuff and a description',
-	// },
+	{
+		name: 'first video',
+		url: 'https://www.youtube.com/embed/1RQ7J3QRVmM',
+		title: 'some title',
+		desc: 'stuff and a description',
+		votes: 3,
+	},
 ]
 
 // Routes \\
@@ -29,14 +30,26 @@ app.get('/api/videos', function(req, res){
 	res.send(videos)
 })
 app.post('/api/videos', function(req, res){
-	console.log('body ->', req.body)
+	console.log('newVid body ->', req.body)
 	videos.push({
 		name: req.body.name,
 		url: req.body.url,
 		title: req.body.title,
 		desc: req.body.desc,
+		votes: req.body.votes || 0,
 	})
 	res.send(videos)
+})
+
+app.post('/api/votes', function(req, res){
+	console.log('newVote body ->', req.body)
+	videos.forEach(function(video){
+		if(video.name == req.body.name){
+			video.votes++
+		}
+	})
+	res.send(videos)
+	
 })
 
 // Creating Server and Listening for Connections \\

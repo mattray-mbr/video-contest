@@ -25,8 +25,11 @@ var app = angular.module('myApp', [])
 		
 	}
 
-	$scope.vote = function(){
-		$http.post('/')
+	$scope.vote = function(vidname){
+		$http.post('/api/votes', {name: vidname})
+			.then(function(dataFromServer){
+				$scope.collection = dataFromServer.data
+		})
 	}
 
 

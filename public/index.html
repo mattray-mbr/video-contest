@@ -28,8 +28,8 @@
 		<iframe width="300px" height="300px" src="{{$sce.trustAsResourceUrl(video.url)}}"></iframe>
 		<h6>{{video.title}}</h6>
 		<p>{{video.desc}}</p>
-		<button class="btn btn-info" ng-click="vote()">vote</button>
-
+		<button class="btn btn-info" ng-click="vote(video.name)">vote</button>
+		<p>votes: {{video.votes}}</p>
 	</div>
 </body>
 </html>
