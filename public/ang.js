@@ -3,6 +3,8 @@ var app = angular.module('myApp', [])
 
 	$scope.$sce = $sce
 	var counter = 0
+	$scope.displayNumber = 0
+	$scope.toggleForm = 'Hide Form'
 
 	//retrieving data from server to be displayed
 	$http.get('/api/videos').then(function(dataFromServer){
@@ -31,6 +33,27 @@ var app = angular.module('myApp', [])
 				$scope.collection = dataFromServer.data
 		})
 	}
+	$scope.nextSet = function(){
+		if($scope.displayNumber === 6){
+			$scope.displayNumber = 0
+		} else {
+			$scope.displayNumber +=2
+		}
+	}
+	$scope.prevSet = function(){
+		if($scope.displayNumber === 0){
+			$scope.displayNumber = 6
+		} else {
+			$scope.displayNumber-=2
+		}
+	}
 
-
+	$scope.hideForm = function(){
+		if($scope.toggleForm === 'Hide Form'){
+			$scope.toggleForm = 'Show Form'
+		} else {
+			$scope.toggleForm = 'Hide Form'
+		}
+		$scope.displayForm = !$scope.displayForm
+	}
 }])

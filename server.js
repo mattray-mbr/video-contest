@@ -13,6 +13,55 @@ app.use(express.static(__dirname + '/public'));
 
 var videos = [
 	{
+		name: 'First Video',
+		url: 'https://www.youtube.com/embed/1RQ7J3QRVmM',
+		title: 'Guenella Pass',
+		desc: 'stuff and a description',
+		votes: 0,
+	},
+	{
+		name: 'Second Video',
+		url: 'https://www.youtube.com/embed/WWW3_hTV7hc',
+		title: 'Lower Chaos',
+		desc: 'stuff and a description',
+		votes: 0,
+	},
+	{
+		name: 'Third Video',
+		url: 'https://www.youtube.com/embed/FXKfah3nJTs',
+		title: 'Upper Chaos',
+		desc: 'stuff and a description',
+		votes: 0,
+	},
+	{
+		name: 'Fourth Video',
+		url: 'https://www.youtube.com/embed/ZQs1YTZZhok',
+		title: 'Flagstaff',
+		desc: 'stuff and a description',
+		votes: 0,
+	},
+	{
+		name: 'Fifth Video',
+		url: 'https://www.youtube.com/embed/CvVjuWMpHugk',
+		title: 'Alpine Stuff',
+		desc: 'stuff and a description',
+		votes: 3,
+	},
+	{
+		name: 'first video',
+		url: 'https://www.youtube.com/embed/1RQ7J3QRVmM',
+		title: 'some title',
+		desc: 'stuff and a description',
+		votes: 3,
+	},
+	{
+		name: 'first video',
+		url: 'https://www.youtube.com/embed/1RQ7J3QRVmM',
+		title: 'some title',
+		desc: 'stuff and a description',
+		votes: 3,
+	},
+	{
 		name: 'first video',
 		url: 'https://www.youtube.com/embed/1RQ7J3QRVmM',
 		title: 'some title',
