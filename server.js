@@ -45,28 +45,28 @@ var videos = [
 		url: 'https://www.youtube.com/embed/CvVjuWMpHugk',
 		title: 'Alpine Stuff',
 		desc: 'stuff and a description',
-		votes: 3,
+		votes: 0,
 	},
 	{
-		name: 'first video',
+		name: 'Sixth Video',
 		url: 'https://www.youtube.com/embed/1RQ7J3QRVmM',
 		title: 'some title',
 		desc: 'stuff and a description',
-		votes: 3,
+		votes: 0,
 	},
 	{
-		name: 'first video',
+		name: 'Seventh Video',
 		url: 'https://www.youtube.com/embed/1RQ7J3QRVmM',
 		title: 'some title',
 		desc: 'stuff and a description',
-		votes: 3,
+		votes: 0,
 	},
 	{
-		name: 'first video',
+		name: 'Eight Video',
 		url: 'https://www.youtube.com/embed/1RQ7J3QRVmM',
 		title: 'some title',
 		desc: 'stuff and a description',
-		votes: 3,
+		votes: 0,
 	},
 ]
 
@@ -108,5 +108,3 @@ app.listen(port, function(){
   console.log('Server running on port ' + port);
 
 })
-
-􏱙􏱦􏱆

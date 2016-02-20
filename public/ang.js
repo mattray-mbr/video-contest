@@ -9,7 +9,6 @@ var app = angular.module('myApp', [])
 	//retrieving data from server to be displayed
 	$http.get('/api/videos').then(function(dataFromServer){
 		$scope.collection = dataFromServer.data
-		console.log($scope.collection)
 	})
 
 	//sending form data to server
@@ -54,6 +53,49 @@ var app = angular.module('myApp', [])
 			$scope.toggleForm = 'Hide Form'
 		}
 		$scope.displayForm = !$scope.displayForm
+		console.log($scope.collection)
 	}
 
+	$scope.winner = function(index){
+			//compare votes for two videos
+			console.log($scope.collection[index].votes)
+			console.log($scope.collection[index+1].votes)
+			if($scope.collection[index].votes > $scope.collection[index+1].votes){
+				console.log('video 1 won')
+				$scope.winnerIs = 'video 1'
+				//remove video 2
+			} else if($scope.collection[index].votes < $scope.collection[index+1].votes) {
+				console.log('video 2 won')
+				$scope.winnerIs = 'video 2'
+			//remove video 1
+			} else {
+				$scope.winnerIs = 'The result was a tie'
+			}
+		}
+
 }])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

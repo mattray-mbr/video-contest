@@ -37,11 +37,13 @@
 				<p>{{video.desc}}</p>
 				<button class="btn btn-info" ng-click="vote(video.name)">vote</button>
 				<p>votes: {{video.votes}}</p>
+				<button class="btn btn-success" ng-click="winner($index)">Decide Winner</button>
 			</div>
 		</div> <!-- row -->
 		<div class="row">
 			<div class="col-xs-12">
-				<button class="btn btn-success">Winner</button>
+				
+				<p>{{winnerIs}}</p>
 			</div>
 		</div> <!-- row -->
 		<div class="row">
